@@ -34,6 +34,7 @@ const (
 	XenHVM
 	Bhyve
 	Hygon
+	ORACLEVB
 )
 
 const (
@@ -836,6 +837,7 @@ var vendorMapping = map[string]VendorDetails{
 	"GenuineTMx86": {Transmeta, "Transmeta"},
 	"Geode by NSC": {NSC, "NSC"},
 	"VIA VIA VIA ": {VIA, "VIA"},
+	"KVMKVMKVM":    {ORACLEVB, "ORACLE VIRTUALBOX"},
 	"KVMKVMKVMKVM": {KVM, "KVM"},
 	"Microsoft Hv": {MSVM, "MSVM"},
 	"VMwareVMware": {VMware, "VMware"},
