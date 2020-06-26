@@ -11,7 +11,6 @@
 package cpuid
 
 import (
-	"fmt"
 	"math"
 	"strings"
 )
@@ -857,7 +856,6 @@ func vendorName(vend Vendor) string {
 }
 
 func vendorID() (vend Vendor) {
-	fmt.Println("Got here")
 	var ok bool
 	var venDetails VendorDetails
 	if false == CPU.VM() {
