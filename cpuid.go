@@ -863,7 +863,6 @@ func vendorID() (vend Vendor) {
 	if false == CPU.VM() {
 		_, b, c, d := cpuid(0)
 		v := valAsString(b, d, c)
-		fmt.Println("not is vm ", string(v))
 		venDetails, ok = vendorMapping[string(v)]
 		if !ok {
 			return Other
@@ -875,7 +874,6 @@ func vendorID() (vend Vendor) {
 		base = leaf
 		a, b, c, d := cpuid(leaf)
 		v := valAsString(b, c, d)
-		fmt.Println("ayu value 1 ", string(v))
 		venDetails, ok = vendorMapping[string(v)]
 		if !ok {
 			maxEntries := a
@@ -883,7 +881,6 @@ func vendorID() (vend Vendor) {
 				for leaf = base + 0x100; leaf <= base+maxEntries; leaf += 0x100 {
 					_, b, c, d := cpuid(leaf)
 					v := valAsString(b, c, d)
-					fmt.Println("ayu value 2 ", string(v))
 					venDetails, ok = vendorMapping[string(v)]
 					if !ok {
 						return Other
