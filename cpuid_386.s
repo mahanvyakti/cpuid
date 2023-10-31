@@ -1,6 +1,6 @@
 // Copyright (c) 2015 Klaus Post, released under MIT License. See LICENSE file.
 
-// +build 386,!gccgo
+//+build 386,!gccgo,!noasm,!appengine
 
 // func asmCpuid(op uint32) (eax, ebx, ecx, edx uint32)
 TEXT ·asmCpuid(SB), 7, $0
@@ -39,4 +39,9 @@ TEXT ·asmRdtscpAsm(SB), 7, $0
 	MOVL BX, ebx+4(FP)
 	MOVL CX, ecx+8(FP)
 	MOVL DX, edx+12(FP)
+	RET
+
+// func asmDarwinHasAVX512() bool
+TEXT ·asmDarwinHasAVX512(SB), 7, $0
+	MOVL $0, eax+0(FP)
 	RET
